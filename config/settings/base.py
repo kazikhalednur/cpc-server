@@ -15,8 +15,6 @@ from pathlib import Path
 
 from decouple import Csv, config
 
-from .dbmigrate import MYAPP
-
 TESTING = "test" in sys.argv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -34,6 +32,10 @@ DEBUG = config("DEBUG", cast=bool)
 
 ALLOWED_HOSTS = config("ALLOWED_HOSTS", cast=Csv())
 
+
+# Application definition
+
+MYAPP = ["accounts", "committees"]
 THIRD_PARTY_APP = [
     "corsheaders",
     "rest_framework",
@@ -42,9 +44,6 @@ THIRD_PARTY_APP = [
     "drf_spectacular",
     "adminsortable2",
 ]
-
-# Application definition
-
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -87,6 +86,24 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "config.wsgi.application"
+
+
+# Database
+# https://docs.djangoproject.com/en/5.1/ref/settings/#databases
+
+DATABASES = {
+    "default": {
+        "ENGINE": config("DB_ENGINE", cast=str),
+        "NAME": config("DB_NAME", cast=str),
+        "USER": config("DB_USER", cast=str),
+        "PASSWORD": config("DB_PASSWORD", cast=str),
+        "OPTIONS": {
+            "autocommit": True,
+        },
+    }
+}
+
+MIGRATION_MODULES = {app: f"{app}.migrations_generated" for app in MYAPP}
 
 AUTH_USER_MODEL = "accounts.User"
 
