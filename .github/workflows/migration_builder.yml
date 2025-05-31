@@ -9,14 +9,16 @@ permissions:
 jobs:
   create-migrations:
     runs-on: ubuntu-latest
-    run: |
+    
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Load environment variables from sample.env
+      run: |
         cp sample.env .env
         set -a
         source .env
         set +a
-
-    steps:
-    - uses: actions/checkout@v4
 
     - name: Set up Python
       uses: actions/setup-python@v5
