@@ -11,6 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     env:
       SERVER_TYPE: 'dbmigrate'
+      DB_ENGINE: 'mysql.connector.django'
+      DB_NAME: 'cpc'
+      DB_USER: 'root'
+      DB_PASSWORD: 'password'
 
     steps:
     - uses: actions/checkout@v4
