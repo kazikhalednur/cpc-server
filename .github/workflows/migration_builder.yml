@@ -9,12 +9,11 @@ permissions:
 jobs:
   create-migrations:
     runs-on: ubuntu-latest
-    env:
-      SERVER_TYPE: dbmigrate
-      DB_ENGINE: mysql.connector.django
-      DB_NAME: cpc
-      DB_USER: root
-      DB_PASSWORD: password
+    run: |
+        cp sample.env .env
+        set -a
+        source .env
+        set +a
 
     steps:
     - uses: actions/checkout@v4
@@ -30,6 +29,8 @@ jobs:
         pip install -r requirements/base.txt
 
     - name: Create migrations
+      env:
+        SERVER_TYPE: dbmigrate
       run: 
         python manage.py makemigrations
   
