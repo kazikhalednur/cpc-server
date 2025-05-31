@@ -15,7 +15,6 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
-from debug_toolbar.toolbar import debug_toolbar_urls
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
@@ -27,6 +26,7 @@ urlpatterns = [
 ]
 
 if settings.SERVER_TYPE == "local":
+    from debug_toolbar.toolbar import debug_toolbar_urls
     from drf_spectacular.views import (
         SpectacularAPIView,
         SpectacularRedocView,
