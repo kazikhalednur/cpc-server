@@ -40,6 +40,7 @@ THIRD_PARTY_APP = [
     "rest_framework_simplejwt",
     "rest_framework_simplejwt.token_blacklist",
     "drf_spectacular",
+    "adminsortable2",
 ]
 
 # Application definition
@@ -87,28 +88,14 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "config.wsgi.application"
 
-
-# Database
-# https://docs.djangoproject.com/en/5.1/ref/settings/#databases
-
-DATABASES = {
-    "default": {
-        "ENGINE": config("DB_ENGINE", cast=str),
-        "NAME": config("DB_NAME", cast=str),
-        "USER": config("DB_USER", cast=str),
-        "PASSWORD": config("DB_PASSWORD", cast=str),
-        "HOST": config("DB_HOST", cast=str),
-        "PORT": config("DB_PORT", cast=int),
-    }
-}
-
+AUTH_USER_MODEL = "accounts.User"
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",  # noqa: E501
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
     },
     {
         "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
@@ -151,6 +138,7 @@ CORS_ALLOWED_ORIGINS = config("CORS_ALLOWED_ORIGINS", cast=Csv())
 
 OTP_TIMEOUT = 300
 
+STUDENT_DATA_URL = config("STUDENT_DATA_URL")
 
 from .rest_framework import *
 from .simple_jwt import *

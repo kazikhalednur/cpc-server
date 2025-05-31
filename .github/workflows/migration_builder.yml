@@ -9,6 +9,8 @@ permissions:
 jobs:
   create-migrations:
     runs-on: ubuntu-latest
+    env:
+      SERVER_TYPE: 'dbmigrate'
 
     steps:
     - uses: actions/checkout@v4

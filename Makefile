@@ -3,7 +3,7 @@ UNAME_S := $(shell uname -s)
 
 server:
 ifeq ($(UNAME_S), Linux)
-	@sudo systemctl start postgresql.service
+	@sudo systemctl start mysql.service
 endif
 	$(VENV)/python manage.py makemigrations;
 	$(VENV)/python manage.py migrate;
