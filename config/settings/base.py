@@ -35,15 +35,6 @@ ALLOWED_HOSTS = config("ALLOWED_HOSTS", cast=Csv())
 
 # Application definition
 
-MYAPP = ["accounts", "committees"]
-THIRD_PARTY_APP = [
-    "corsheaders",
-    "rest_framework",
-    "rest_framework_simplejwt",
-    "rest_framework_simplejwt.token_blacklist",
-    "drf_spectacular",
-    "adminsortable2",
-]
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -51,8 +42,17 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    *MYAPP,
-    *THIRD_PARTY_APP,
+    # my-app
+    "accounts.apps.AccountsConfig",
+    "committees.apps.CommitteesConfig",
+    # third party
+    "corsheaders",
+    "rest_framework",
+    "rest_framework_simplejwt",
+    "rest_framework_simplejwt.token_blacklist",
+    "drf_spectacular",
+    "drf_spectacular_sidecar",
+    "adminsortable2",
 ]
 
 MIDDLEWARE = [
@@ -102,8 +102,6 @@ DATABASES = {
         },
     }
 }
-
-MIGRATION_MODULES = {app: f"{app}.migrations_generated" for app in MYAPP}
 
 AUTH_USER_MODEL = "accounts.User"
 

@@ -8,8 +8,6 @@ elif SERVER_TYPE == "staging":
     from .staging import *
 elif SERVER_TYPE == "local":
     from .local import *
-elif SERVER_TYPE == "dbmigrate":
-    from .base import *
 else:
     raise ValueError(
         "Couldn't read SERVER_TYPE. Did you forget to add SERVER_TYPE in .env file?"

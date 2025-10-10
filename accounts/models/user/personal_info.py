@@ -11,9 +11,9 @@ class PersonalInfo(models.Model):
     last_name = models.CharField(max_length=150, blank=True, null=True)
     picture = models.URLField(max_length=300, blank=True, null=True)
     student_id = models.CharField(max_length=20, unique=True)
-    batch_no = models.CharField(max_length=10)
-    batch_inital = models.CharField(max_length=10)
-    department = models.CharField(max_length=100)
+    batch_no = models.CharField(max_length=10, blank=True, null=True)
+    batch_inital = models.CharField(max_length=10, blank=True, null=True)
+    department = models.CharField(max_length=100, blank=True, null=True)
 
     gender = models.CharField(
         max_length=10, choices=Gender.choices, blank=True, null=True

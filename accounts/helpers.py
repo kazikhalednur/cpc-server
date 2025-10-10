@@ -8,7 +8,7 @@ from google_auth_oauthlib.flow import Flow
 from rest_framework.exceptions import ValidationError
 
 
-def google_user_details(code: str):
+def google_user_details(code: str, redirect_uri_index: int):
     try:
         credentials_path = settings.BASE_DIR / "google_credentials.json"
 
@@ -25,9 +25,11 @@ def google_user_details(code: str):
 
         flow = Flow.from_client_config(client_config=credentials, scopes=SCOPE)
 
-        flow.redirect_uri = credentials["web"]["redirect_uris"][0]
+        flow.redirect_uri = credentials["web"]["redirect_uris"][redirect_uri_index]
 
+        print(redirect_uri_index, "ok")
         flow.fetch_token(code=code)
+        print(flow, "ok")
 
         id_token_str = flow.credentials.id_token
         idinfo = id_token.verify_oauth2_token(
