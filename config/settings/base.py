@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "accounts.apps.AccountsConfig",
     "committees.apps.CommitteesConfig",
     "notices.apps.NoticesConfig",
+    "events.apps.EventsConfig",
     # third party
     "corsheaders",
     "rest_framework",
