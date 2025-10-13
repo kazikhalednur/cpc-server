@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     "committees.apps.CommitteesConfig",
     "notices.apps.NoticesConfig",
     "events.apps.EventsConfig",
+    "images.apps.ImagesConfig",
     # third party
     "corsheaders",
     "rest_framework",
@@ -55,6 +56,9 @@ INSTALLED_APPS = [
     "drf_spectacular",
     "drf_spectacular_sidecar",
     "adminsortable2",
+    "django_filters",
+    "simple_history",
+    "tinymce",
 ]
 
 MIDDLEWARE = [
@@ -67,6 +71,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "simple_history.middleware.HistoryRequestMiddleware",
 ]
 
 ROOT_URLCONF = "config.urls"
@@ -160,3 +165,4 @@ STUDENT_DATA_URL = config("STUDENT_DATA_URL")
 from .rest_framework import *
 from .simple_jwt import *
 from .spectacular import *
+from .tinymce import *
