@@ -43,6 +43,7 @@ urlpatterns = [
     path("events/", include("events.urls")),
     path("tinymce/", include("tinymce.urls")),
     path("images/", include("images.urls")),
+    path("contests/", include("contests.urls")),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

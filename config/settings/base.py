@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     "notices.apps.NoticesConfig",
     "events.apps.EventsConfig",
     "images.apps.ImagesConfig",
+    "contests.apps.ContestsConfig",
     # third party
     "corsheaders",
     "rest_framework",
