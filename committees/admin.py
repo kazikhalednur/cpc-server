@@ -1,7 +1,20 @@
 from adminsortable2.admin import SortableAdminMixin
 from django.contrib import admin
 
-from .models import CorePosition, Member, Wing
+from .models import Committee, CorePosition, Member, Panel, Wing
+
+
+@admin.register(Committee)
+class CommitteeAdmin(admin.ModelAdmin):
+    list_display = ["year"]
+    search_fields = ["year"]
+    list_filter = ["year"]
+
+
+@admin.register(Panel)
+class PanelAdmin(admin.ModelAdmin):
+    list_display = ["committee", "type", "image"]
+
 
 admin.site.register(Member)
 

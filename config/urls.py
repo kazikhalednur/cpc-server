@@ -44,6 +44,7 @@ urlpatterns = [
     path("tinymce/", include("tinymce.urls")),
     path("images/", include("images.urls")),
     path("contests/", include("contests.urls")),
+    path("committees/", include("committees.urls")),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
