@@ -5,7 +5,7 @@ from .models import Blog
 
 
 class BlogFilter(FilterSet):
-    category = CharFilter(field_name="category__title", lookup_expr="icontains")
+    category = CharFilter(field_name="category__slug", lookup_expr="icontains")
     search = CharFilter(field_name="content", method="filter_by_search")
     author = CharFilter(method="filter_by_author")
 
