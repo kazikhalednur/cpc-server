@@ -45,6 +45,7 @@ urlpatterns = [
     path("images/", include("images.urls")),
     path("contests/", include("contests.urls")),
     path("committees/", include("committees.urls")),
+    path("blogs/", include("blogs.urls")),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

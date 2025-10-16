@@ -19,6 +19,7 @@ class PersonalInfo(models.Model):
         max_length=10, choices=Gender.choices, blank=True, null=True
     )
     phone_number = models.CharField(max_length=20, blank=True, null=True)
+    bio = models.TextField(blank=True, null=True)
 
     class Meta:
         abstract = True
