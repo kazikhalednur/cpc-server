@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     "images.apps.ImagesConfig",
     "contests.apps.ContestsConfig",
     "blogs.apps.BlogsConfig",
+    "achievements.apps.AchievementsConfig",
     # third party
     "corsheaders",
     "rest_framework",

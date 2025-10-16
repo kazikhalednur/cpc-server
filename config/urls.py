@@ -46,6 +46,7 @@ urlpatterns = [
     path("contests/", include("contests.urls")),
     path("committees/", include("committees.urls")),
     path("blogs/", include("blogs.urls")),
+    path("achievements/", include("achievements.urls")),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
