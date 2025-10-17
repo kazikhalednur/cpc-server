@@ -11,5 +11,6 @@ google-auth-oauthlib==1.2.2
 google-api-python-client==2.169.0
 mysql-connector-python==9.3.0
 pillow==11.2.1
+psycopg2==2.9.11
 python-decouple==3.8
 whitenoise==6.9.0
