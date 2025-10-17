@@ -166,7 +166,7 @@ CORS_ALLOWED_ORIGINS = config("CORS_ALLOWED_ORIGINS", cast=Csv())
 
 OTP_TIMEOUT = 300
 
-STUDENT_DATA_URL = config("STUDENT_DATA_URL")
+# STUDENT_DATA_URL = config("STUDENT_DATA_URL")
 
 from .rest_framework import *
 from .simple_jwt import *
